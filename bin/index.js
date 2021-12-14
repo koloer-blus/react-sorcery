@@ -36,9 +36,16 @@ fs.writeFile(REGISTRY_COMPONENTS_FILE, registryFileData).then(() => {
   console.log("complete registry components")
 })
 
-// fs.writeJson().then(() => {
-//   console.log("complete router registry")
-// })
+fs.writeJson(ROUTER_CONFIG_FILE, {
+  pages: [
+    {
+      path: "/",
+      element: "TestMD"
+    }
+  ]
+}).then(() => {
+  console.log("complete router registry")
+})
 
 // >>> output version
 program
