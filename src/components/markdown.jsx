@@ -9,6 +9,7 @@ import "../style/eloquent.css";
 
 import mdData from '../registry';
 import routes from '../route.config.json';
+import { Link } from 'react-router-dom';
 
 const MarkDown = (props) => {
   const { pageKey } = props;
@@ -21,12 +22,15 @@ const MarkDown = (props) => {
       rehypePlugins={[rehypeRaw]}
       components={{
         a({ node, children, href, ...props }) {
-          const tempHref = href[0] === '.'
-            ? routes.pages.find(page => {
+          if (href[0] === '.') {
+            const res = routes.pages.find(page => {
               return decodeURI(page.filePath) === decodeURI(href)
-            })?.path || href
-            : href;
-          return <a {...props} href={tempHref}>{children}</a>
+            });
+            if (res) {
+              return <Link {...props} to={res.path} >{children}</Link>
+            }
+          }
+          return <a {...props} href={href}>{children}</a>
         },
         code({ node, inline, className, children, ...props }) {
           const match = /language-(\w+)/.exec(className || '');
