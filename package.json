@@ -27,10 +27,10 @@
         "vite": "^2.7.2"
     },
     "scripts": {
-        "docs:build": "node ./bin/index.js",
-        "docs:dev": "npm run docs:build && vite",
-        "press:build": "npm run docs:build && vite build",
-        "press:preview": "npm run docs:build && vite preview"
+        "md:build": "node ./bin/index.js",
+        "docs:dev": "npm run md:build && vite",
+        "docs:build": "npm run md:build && vite build",
+        "docs:preview": "npm run docs:build && vite preview"
     },
     "repository": {
         "type": "git",

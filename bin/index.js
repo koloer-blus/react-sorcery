@@ -2,7 +2,6 @@ const fs = require("fs-extra")
 const path = require('path');;
 
 const { Command, Option } = require('commander');
-const { registryComponentsText } = require("../util/transform")
 
 const pkg = require('../package.json');
 
@@ -128,7 +127,7 @@ function registryComponentsText() {
 clearTheBuildPath();
 getDocsFilesList(MD_DOCS_PATH, docs_path);
 transformMDtoJSON(docs_path);
-registryComponentsText(pageNamesList);
+registryComponentsText();
 
 // program commands
 const COMMAND_PATH = process.cwd();
