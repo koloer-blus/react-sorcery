@@ -1,6 +1,1 @@
-{
-    "pages": [{
-        "path": "/",
-        "element": "TestMD"
-    }]
-}
+{"pages":[{"path":"/","element":"TestMD"},{"path":"/test","element":"TestMD"}]}

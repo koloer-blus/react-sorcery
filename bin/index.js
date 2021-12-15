@@ -12,7 +12,7 @@ const MD_DOCS_PATH = path.resolve(__dirname, `../docs/`);
 const PRESS_PAGE_PATH = path.resolve(__dirname, "../src/pages/");
 const REACT_PAGE_FILE_TYPE = ".jsx";
 const REGISTRY_COMPONENTS_FILE = path.resolve(__dirname, "../src/registry.jsx");
-const ROUTER_CONFIG_FILE = path.resolve(__dirname, "../router.config.json");
+const ROUTER_CONFIG_FILE = path.resolve(__dirname, "../src/route.config.json");
 const COMMAND_PATH = process.cwd();
 
 // get the ReactPress info in package.json
@@ -40,6 +40,10 @@ fs.writeJson(ROUTER_CONFIG_FILE, {
   pages: [
     {
       path: "/",
+      element: "TestMD"
+    },
+    {
+      path: "/test",
       element: "TestMD"
     }
   ]
