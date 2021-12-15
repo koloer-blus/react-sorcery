@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
+import useDocumentTitle from 'hooks/useDocumentTitle'
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
@@ -9,6 +10,8 @@ import mdData from '../registry';
 
 const MarkDown = (props) => {
   const { pageKey } = props;
+
+  useDocumentTitle(mdData[pageKey].title || 'ReadME')
   return (
     <ReactMarkdown
       children={mdData[pageKey].content || ''}

@@ -63,7 +63,8 @@ function transformMDtoJSON(filesList) {
         const fileName = file.name + MD_JSON_FILE_TYPE;
 
         fs.writeJSON(`${PRESS_MD_JSON_PATH}/${fileName}`, {
-          content: data
+          content: data,
+          title: file.title
         }, { flag: "w+" })
           .then(() => {
             console.log(`[✅ ${Date.now()}] Successfully created ${fileName}.`)
