@@ -18,5 +18,14 @@ export default defineConfig({
       { find: "utils", replacement: path.resolve(__dirname, './src/utils') },
       { find: "docs-data", replacement: path.resolve(__dirname, './src/docs-data') }
     ]
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+      },
+    },
   }
 })
