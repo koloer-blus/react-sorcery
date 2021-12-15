@@ -7,6 +7,7 @@ const pkg = require('../package.json');
 
 // define the global filePath
 const MD_DOCS_PATH = path.resolve(__dirname, "../docs/");
+const INDEX_MD = path.join(MD_DOCS_PATH, "README.md");
 const PRESS_MD_JSON_PATH = path.resolve(__dirname, "../src/md/");
 const MD_JSON_FILE_TYPE = ".md.json";
 const REGISTRY_COMPONENTS_FILE = path.resolve(__dirname, "../src/registry.jsx");
@@ -25,23 +26,22 @@ function clearTheBuildPath() {
 
 
 // >>> get the md docs file path list
-function getDocsFilesList(dir, filesList = []) {
+function getDocsFilesList(dir, filesList = [], indexMd = '') {
   const files = fs.readdirSync(dir);
   files.forEach((item) => {
     const fullPath = path.join(dir, item);
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {
-      getDocsFilesList(fullPath, filesList);
+      getDocsFilesList(fullPath, filesList, dir);
     } else {
-
+      const fileTitle = item.slice(0, item.lastIndexOf("."));
       const isMD = item.slice(item.lastIndexOf(".") + 1).toLowerCase() === "md";
       if (isMD) {
-
         filesList.push({
           path: fullPath,
-          title: item.slice(0, item.lastIndexOf(".")),
+          title: fileTitle,
           name: `DOC_MD__${count}`,
-          route: `/doc__${count}`
+          route: fullPath === indexMd ? '/' : `/doc__${count}`
         });
         count++;
       }
@@ -89,7 +89,7 @@ function transformMDtoJSON(filesList) {
 function registryComponentsText() {
   const mdList = docs_path.map(doc => ({
     name: doc.name,
-    file: doc.name + MD_JSON_FILE_TYPE
+    file: doc.name + MD_JSON_FILE_TYPE,
   }));
   // registry the jsx
   const imrComponents = mdList
@@ -101,7 +101,7 @@ function registryComponentsText() {
       .join("\n")
     }
   };`
-  const registryFileData =  `
+  const registryFileData = `
     ${imrComponents}
 
     ${eprComponents}
@@ -110,12 +110,13 @@ function registryComponentsText() {
   fs.writeFile(REGISTRY_COMPONENTS_FILE, registryFileData, { flag: "w+" }).then(() => {
     console.log("✅complete registry components")
   })
-  
+
   // registry the josn
   fs.writeJson(ROUTER_CONFIG_FILE, {
     pages: docs_path.map(doc => ({
       md_key: doc.name,
-      path: doc.route
+      path: doc.route,
+      filePath: "./" + path.relative(MD_DOCS_PATH, doc.path).replace(/\\/g, "/")
     }))
   }, { flag: "w+" }).then(() => {
     console.log("✅Complete router registry")
@@ -126,7 +127,7 @@ function registryComponentsText() {
 }
 
 clearTheBuildPath();
-getDocsFilesList(MD_DOCS_PATH, docs_path);
+getDocsFilesList(MD_DOCS_PATH, docs_path, INDEX_MD);
 transformMDtoJSON(docs_path);
 registryComponentsText();
 
