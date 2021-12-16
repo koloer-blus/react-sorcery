@@ -10,6 +10,11 @@ export default defineConfig({
     modules: {
       generateScopedName: 'react_press_[name]__[local]__[hash:base64:5]'
     },
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true
+      }
+    }
   },
   resolve: {
     modules: ['node_modules'],

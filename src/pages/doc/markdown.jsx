@@ -6,6 +6,7 @@ import rehypeRaw from 'rehype-raw';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atelierDuneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import "style/theme.css";
+import docStyle from './doc.module.less';
 
 import routes from '@/route.config.json';
 import { Link } from 'react-router-dom';
@@ -15,7 +16,7 @@ const MarkDown = (props) => {
 
   return (
     <ReactMarkdown
-      className="md-doc-view"
+      className={docStyle["md-doc-view"]}
       children={content || ''}
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
