@@ -17,7 +17,7 @@ export default defineConfig({
       { find: "md", replacement: path.resolve(__dirname, './src/md') },
       { find: "hooks", replacement: path.resolve(__dirname, './src/hooks') },
       { find: "utils", replacement: path.resolve(__dirname, './src/utils') },
-      { find: "docs-data", replacement: path.resolve(__dirname, './src/docs-data') }
+      { find: "style", replacement: path.resolve(__dirname, './src/style') },
     ]
   },
   build: {

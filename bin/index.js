@@ -61,6 +61,7 @@ function transformMDtoJSON(filesList) {
     fs.readFile(file.path, 'utf-8')
       .then((data) => {
         const fileName = file.name + MD_JSON_FILE_TYPE;
+        
 
         fs.writeJSON(`${PRESS_MD_JSON_PATH}/${fileName}`, {
           content: data,
