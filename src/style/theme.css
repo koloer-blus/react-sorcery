@@ -2029,9 +2029,11 @@ button.active,
 
 /* the input #md-grid-height doesn't have a type attached for some reason and needs to be adressed seperately */
 
-html select,
+
+/* html select,
 html input[type="text"],
-html input[type="number"],
+html input[type="number"], */
+
 #md-grid-height {
     background-color: var(--bg-color) !important;
     border-radius: 0.3rem !important;
