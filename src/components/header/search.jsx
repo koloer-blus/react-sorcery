@@ -26,7 +26,6 @@ const Search = () => {
     <div className={headerStyle['doc-search']}>
       <div className="doc-search-box">
         <input
-          onBlur={() => setVisible(false)}
           onFocus={() => setVisible(true)}
           onChange={search}
           ref={inputRef}
@@ -37,7 +36,11 @@ const Search = () => {
       </div>
       {
         visible && (
-          <div className={headerStyle["doc-search-result"]}>
+          <div
+            className={headerStyle["doc-search-result"]}
+            onClick={() => setVisible(false)}
+            onBlur={() => setVisible(false)}
+          >
             <div className={headerStyle["split-box"]}>
               {
                 isSearch ? '为你找到以下内容：' : '看看这些内容吧：'
