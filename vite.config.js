@@ -6,6 +6,11 @@ import path from 'path';
 export default defineConfig({
   plugins: [react()],
   base: "/ReactPress/",
+  css: {
+    modules: {
+      generateScopedName: 'react_press_[name]__[local]__[hash:base64:5]'
+    },
+  },
   resolve: {
     modules: ['node_modules'],
     mainFiles: ['index'],

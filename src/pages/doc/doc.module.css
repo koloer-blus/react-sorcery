@@ -1,0 +1,16 @@
+.left-nav {
+    width: max-content;
+    border-right: 2px solid rgb(109, 211, 230);
+    padding: 20px;
+    margin: 20px;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.doc-page-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

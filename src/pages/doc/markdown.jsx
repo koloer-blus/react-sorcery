@@ -1,29 +1,27 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-import useDocumentTitle from 'hooks/useDocumentTitle'
+
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atelierDuneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import "style/theme.css";
 
-import mdData from '@/registry';
 import routes from '@/route.config.json';
 import { Link } from 'react-router-dom';
 
 const MarkDown = (props) => {
-  const { pageKey } = props;
-  useDocumentTitle(mdData[pageKey].title || 'ReadME');
+  const { content } = props;
 
   return (
     <ReactMarkdown
       className="md-doc-view"
-      children={mdData[pageKey].content || ''}
+      children={content || ''}
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
       components={{
         h2({ node, children, ...props }) {
-          return <h2 {...props}>{children}</h2>
+          return <h2 id={children} {...props}>{children}</h2>
         },
         a({ node, children, href, ...props }) {
           if (href[0] === '.') {

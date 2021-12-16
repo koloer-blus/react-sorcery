@@ -2,18 +2,27 @@ import * as React from 'react';
 
 import useDocumentTitle from 'hooks/useDocumentTitle'
 import MarkDown from './markdown';
-import { useDocContext, DOCContextProvider } from './doc-context';
+import LeftNav from './left-nav';
+import mdData from '@/registry';
+import docStyle from './doc.module.css';
 
 const Doc = (props) => {
   const { pageKey } = props;
-  const { title } = useDocContext();
-  useDocumentTitle(title);
+  const { title, content } = mdData[pageKey];
+  useDocumentTitle(title || 'ReadME');
+
   return (
-    <DOCContextProvider>
-      <MarkDown
-        pageKey={pageKey}
+    <div
+      className={docStyle['doc-page-layout']}
+    >
+      <LeftNav
+        content={content}
       />
-    </DOCContextProvider>
+      <MarkDown
+        title={title}
+        content={content}
+      />
+    </div>
   )
 };
 

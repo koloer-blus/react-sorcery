@@ -1,5 +1,5 @@
-const fs = require("fs-extra")
-const path = require('path');;
+const fs = require("fs-extra");
+const path = require('path');
 
 const { Command, Option } = require('commander');
 
@@ -61,7 +61,6 @@ function transformMDtoJSON(filesList) {
     fs.readFile(file.path, 'utf-8')
       .then((data) => {
         const fileName = file.name + MD_JSON_FILE_TYPE;
-        
 
         fs.writeJSON(`${PRESS_MD_JSON_PATH}/${fileName}`, {
           content: data,
