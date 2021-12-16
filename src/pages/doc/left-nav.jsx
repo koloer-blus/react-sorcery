@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { marked } from 'marked';
-import docStyle from './doc.module.css';
+import docStyle from './doc.module.less';
 
 const LeftNav = (props) => {
   const { content } = props;
