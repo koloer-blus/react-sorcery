@@ -1,52 +1,109 @@
-# 杂记
+# ReactPress📖
 
-> 这里记录一些闲杂时间的进阶阅读或者一些学习笔记
+> React驱动的Markdown网站生成器
 
-## 读书笔记
+## 项目介绍
 
-1. [Css实现简单形状](./文章笔记/Css实现简单图形.md)
-2. [Vim 实操手册](./文章笔记/Vim使用手册.md)
+## 如何使用
 
-## React
+1. 初始化项目
 
-1. [React Concurrent Mode](./React/React%20Concurrent%20Mode.md)
-2. [监听元素进入视口比例后执行函数](https://github.com/baiziyu-fe/messy-notes/issues/4)
-3. [函数式组件与类组件有何不同？](https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/) 
-4. [useEffect 完整指南](https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/)
-5. [正交的React组件](https://github.com/ascoders/weekly/blob/master/%E5%89%8D%E6%B2%BF%E6%8A%80%E6%9C%AF/132.%E7%B2%BE%E8%AF%BB%E3%80%8A%E6%AD%A3%E4%BA%A4%E7%9A%84%20React%20%E7%BB%84%E4%BB%B6%E3%80%8B.md)
-6. [如何优雅地在 React 中使用TypeScript](https://mp.weixin.qq.com/s/PocFztitL68f1pwJqCVbiA)
-7. [编写有弹性的组件](https://overreacted.io/zh-hans/writing-resilient-components/)
-8. [React 最佳实践](https://github.com/camsong/blog/issues/6)
+  - `clone` 项目
 
-## JavaScript
+    ```bash
+    git clone git@github.com:baiziyu-fe/ReactPress.git
+    ```
 
-1. [EventLoop 理解](./interview/EventLoop详解.md)
-2. [前端模块化](./interview/前端模块化.md)
-3. [JS 继承](./javascript/code/extends.js)
-4. [JS 判断类型](./javascript/code/js-type.js)
+  - 删除原本的`.git`信息
+  
+  - 加载你本地的`.git`信息
+  
+  - 安装依赖
+    - 执行`npm install` 或者 `npm i`
+  - 移入对应的`MarkDown`文件到`docs`目录下
 
-## Http
+2. 了解基本操作
 
-1. [浏览器输入URL网址发生的事情](./interview/浏览器输入URL网址发生的事情.md)
+    - 本地构建(进行数据转化)：`npm run md:build`
+    - 本地构建 + 服务预览：`npm run docs:dev`
+    - 本地构建 + 打包成静态页面：`npm run docs:build`
+    - 本地构建 + 打包成静态页面 + 启动静态服务器预览：`npm run docs:preview`
 
-## Css
+3. 部署到静态服务器（以部署到`Github Pages`为例）
+  - 设置正确的`base`名称选项
+    - 如果你准备发布到 `https://<USERNAME>.github.io/` ，删除项目根目录下`vite.config.js`的`base`配置即可。
+    - 如果你准备发布到 `https://<USERNAME>.github.io/<REPO>/` ，也就是说你的仓库地址是 `https://github.com/<USERNAME>/<REPO>` ，则将项目根目录下`vite.config.js`的 `base` 设置为 "/<REPO>/"。
+  - `git push` 提交代码到远端自动执行`github Actions` 进行静态部署
 
-1. [Splicing HTML’s DNA With CSS Attribute Selectors](https://www.smashingmagazine.com/2018/10/attribute-selectors-splicing-html-dna-css/)
-2. [ICSS](https://github.com/css-modules/icss)
-3. [CSS Modules 用法教程](http://www.ruanyifeng.com/blog/2016/06/css_modules.html)
-4. [CSS Utility Classes and "Separation of Concerns"](https://adamwathan.me/css-utility-classes-and-separation-of-concerns/)
+## 后续计划
 
-## 拓展阅读
+[ ] 界面美化
 
-1. [协同编程冲突处理算法](https://mp.weixin.qq.com/s/3aOdbtCtSf-8YACeowbASA)
-2. [NodeJS底层原理详解](https://mp.weixin.qq.com/s/ognHGg6ptHmvWOWb9B4bPw)
-3. [V8引擎Lazy Parsin--转载](./文章笔记/V8引擎LazyParsing--转载.md)
-4. [前端大管家 package.json](https://mp.weixin.qq.com/s/eJCefZzpsrNZnT8rUXT39A)
-5. [AST、Babel、依赖](https://mp.weixin.qq.com/s/PX3fhUTUwKDbtd2-pq9Rxg)
-6. [编写高质量可维护的代码：组件的抽象与粒度](https://mp.weixin.qq.com/s/6U8zMpnBk9nBI_bQAobdfw)
-7. [Continuous integration vs. continuous delivery vs. continuous deployment](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment)
-8. [How to Make Good Code Reviews Better](https://stackoverflow.blog/2019/09/30/how-to-make-good-code-reviews-better/)
+[ ] 全局搜索
 
-## Books
+[ ] 自定义主题
 
-1. [atomicdesign](https://atomicdesign.bradfrost.com/chapter-1/) >>> ing
+[ ] 插件系统
+
+## 希望自定义
+
+> 想要对项目自定义需要一定的`Javascript`和`React`的编程经验
+
+1. 自定义项目目录：根目录下`src`文件夹
+2. 目录介绍
+```
+│  App.jsx  >>> App组件，ReactRouter使用
+│  main.jsx >>> 主入口文件
+│  registry.jsx >>> 已经注册的React 页面，也就是转化后的文档对象（✅自动生成）
+│  route.config.json >>> 项目的路由配置（✅自动生成）
+│  router.jsx >>> 读取路由文件，传递注册路由信息
+│
+├─components >>> 项目中的组件
+│  ├─footer  >>> 底部
+│  └─header  >>> 顶部
+│          header.module.less >>> LESS modules
+│          index.jsx  >>> Header 布局以及展示
+│          search.jsx >>> 搜索栏
+│
+├─context >>> 预留
+├─hooks >>> React 自定义 hooks
+│      useDocumentTitle.js  >>> 设置文档的`document.title`
+│
+├─md  >>> 转化后的文档存储位置
+│      DOC_MD__1.md.json  >>> 转化后的文档json信息（✅自动生成）
+│
+├─pages >>> 页面
+│  ├─doc  >>> 文档页面
+│  │      doc.module.less >>> 文档页面Less Modules
+│  │      index.jsx >>> 文档页面
+│  │      left-nav.jsx  >>> 左侧标题展示
+│  │      markdown.jsx  >>> 转化后的`MarkDown`展示
+│  │
+│  └─user >>> 预留
+├─public  >>> public 资源
+└─style
+    │  theme.css  >>> 主题CSS `需要替换的可以直接替换该文件，确保引入文件名相同就行` [gitbook theme](https://theme.typora.io/theme/Gitbook/)
+    │
+    └─gitbook >>> 主题配套文件
+            fonts.css
+            old-slate-colors.css
+            Roboto-Black.ttf
+            Roboto-BlackItalic.ttf
+            Roboto-Bold.ttf
+            Roboto-BoldItalic.ttf
+            Roboto-Italic.ttf
+            Roboto-Light.ttf
+            Roboto-LightItalic.ttf
+            Roboto-Medium.ttf
+            Roboto-MediumItalic.ttf
+            Roboto-Regular.ttf
+            Roboto-Thin.ttf
+            Roboto-ThinItalic.ttf
+            slate-colors.css
+            SourceCodePro-Regular.ttf
+
+```
+
+---
+
+> 🎯React Press ©2021 Created by baiziyu-fe
