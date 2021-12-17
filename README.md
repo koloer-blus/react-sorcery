@@ -7,34 +7,43 @@
 ## 如何使用
 
 1. 初始化项目
-  1.1 `clone` 项目
+
+  - `clone` 项目
 
     ```bash
     git clone git@github.com:baiziyu-fe/ReactPress.git
     ```
 
-  1.2 删除原本的`.git`信息
-  1.3 加载你本地的`.git`信息
-  1.4 安装依赖
-    1.4.1 执行`npm install` 或者 `npm i`
-  1.5 移入对应的`MarkDown`文件到`docs`目录下
+  - 删除原本的`.git`信息
+  
+  - 加载你本地的`.git`信息
+  
+  - 安装依赖
+    - 执行`npm install` 或者 `npm i`
+  - 移入对应的`MarkDown`文件到`docs`目录下
+
 2. 了解基本操作
-  2.1 本地构建(进行数据转化)：`npm run md:build`
-  2.2 本地构建 + 服务预览：`npm run docs:dev`
-  2.3 本地构建 + 打包成静态页面：`npm run docs:build`
-  2.4 本地构建 + 打包成静态页面 + 启动静态服务器预览：`npm run docs:preview`
+
+    - 本地构建(进行数据转化)：`npm run md:build`
+    - 本地构建 + 服务预览：`npm run docs:dev`
+    - 本地构建 + 打包成静态页面：`npm run docs:build`
+    - 本地构建 + 打包成静态页面 + 启动静态服务器预览：`npm run docs:preview`
+
 3. 部署到静态服务器（以部署到`Github Pages`为例）
-  3.1 设置正确的`base`名称选项
-    3.1.1 如果你准备发布到 `https://<USERNAME>.github.io/` ，删除项目根目录下`vite.config.js`的`base`配置即可。
-    3.1.2 如果你准备发布到 `https://<USERNAME>.github.io/<REPO>/` ，也就是说你的仓库地址是 `https://github.com/<USERNAME>/<REPO>` ，则将项目根目录下`vite.config.js`的 `base` 设置为 "/<REPO>/"。
-  4.1 `git push` 提交代码到远端自动执行`github Actions` 进行静态部署
+  - 设置正确的`base`名称选项
+    - 如果你准备发布到 `https://<USERNAME>.github.io/` ，删除项目根目录下`vite.config.js`的`base`配置即可。
+    - 如果你准备发布到 `https://<USERNAME>.github.io/<REPO>/` ，也就是说你的仓库地址是 `https://github.com/<USERNAME>/<REPO>` ，则将项目根目录下`vite.config.js`的 `base` 设置为 "/<REPO>/"。
+  - `git push` 提交代码到远端自动执行`github Actions` 进行静态部署
 
 ## 后续计划
 
-[] 界面美化
-[] 全局搜索
-[] 自定义主题
-[] 插件系统
+[ ] 界面美化
+
+[ ] 全局搜索
+
+[ ] 自定义主题
+
+[ ] 插件系统
 
 ## 希望自定义
 
