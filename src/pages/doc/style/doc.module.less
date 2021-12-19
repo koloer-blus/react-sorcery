@@ -1,0 +1,33 @@
+@doc-base-light: #fff;
+@doc-base-border: #597ef7;
+
+.doc-page-layout {
+  .left-nav {
+    width: fit-content;
+    padding: 10px 16px;
+    background-color: @doc-base-light;
+    box-shadow: 0px 2px 4px #bfbfbf;
+    transition: all ease-in-out 0.6s;
+    &:hover {
+      background-color: #f3f5ff;
+      box-shadow: 0px 0px 4px #8d8d8d;
+    }
+
+    .article-nav {
+      padding: 4px 6px;
+    }
+  }
+  .md-docs {
+
+  }
+  @media screen and (min-width: 375px) {
+  }
+
+  @media screen and (min-width: 1024px) {
+    .left-nav {
+      min-width: 160px;
+      border-right: 4px solid @doc-base-border;
+      max-width: 300px;
+    }
+  }
+}

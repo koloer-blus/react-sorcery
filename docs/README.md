@@ -2,9 +2,9 @@
 
 > React驱动的Markdown网站生成器
 
-## 项目介绍
+## 项目介绍`React`驱动的`Markdown`网站生成器
 
-## 如何使用
+## 如何React驱动的Markdown网站生成器 了解基本操作
 
 1. 初始化项目
 

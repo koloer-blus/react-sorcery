@@ -3,20 +3,19 @@ import ReactMarkdown from 'react-markdown';
 
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import { Link } from 'react-router-dom';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atelierDuneLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import "style/theme.css";
-import docStyle from './doc.module.less';
+import "./style/md.less"
 
 import routes from '@/route.config.json';
-import { Link } from 'react-router-dom';
 
 const MarkDown = (props) => {
   const { content } = props;
 
   return (
     <ReactMarkdown
-      className={docStyle["md-doc-view"]}
+      className="md-view"
       children={content || ''}
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}
