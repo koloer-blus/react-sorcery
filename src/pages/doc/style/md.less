@@ -5,24 +5,42 @@
   src: url('./jt-font.woff2') format('truetype');
 }
 
-.md-view {
-  padding: 10px;
 
-  h1,
+.md-view {
+  margin: 32px 16px;
+  padding: 32px 64px;
+  background-color: #fafafa;
+  box-shadow: 4px 4px 8px #e0e0e0;
+  border: 6px solid #bfbfbf;
+  border-radius: 16px;
   h2 {
-    padding: 2px 10px;
-    margin-bottom: 4px;
+    padding: 4px 10px;
+    margin: 8px 0px;
+    box-shadow: 0 0 2px #8c8c8c;
+    border-radius: 0 0 4px 0;
+  }
+  p {
+    margin: 4px;
+    padding: 4px;
   }
 
   code {
     font-family: 'JetFont';
   }
+  ol,
+  ul {
+    background-color: #f5f5f5;
+  }
+  li {
+    padding: 4px;
+  }
 
   .line-code {
     background-color: #f0f0f0;
     padding: 0px 4px;
-    border-radius: 2px;
+    border-radius: 4px;
     color: #d46b08;
+    margin: 4px;
   }
 
   pre {
