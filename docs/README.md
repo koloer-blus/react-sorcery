@@ -51,6 +51,7 @@
 
 1. 自定义项目目录：根目录下`src`文件夹
 2. 目录介绍
+
 ```
 │  App.jsx  >>> App组件，ReactRouter使用
 │  main.jsx >>> 主入口文件

@@ -29,8 +29,6 @@ const LeftNav = (props) => {
     setNavList(tempList.filter(nav => nav.level === 2));
   }, [content]);
 
-  console.log(navList)
-
   return (
     <div
       className={docStyle["left-nav"]}
