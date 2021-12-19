@@ -3,6 +3,8 @@ import { BrowserRouter } from "react-router-dom";
 import PageRoutes from './router';
 import Header from 'components/header';
 
+import 'style/base.less';
+
 function App() {
 
   return (

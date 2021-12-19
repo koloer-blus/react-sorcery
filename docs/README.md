@@ -2,9 +2,9 @@
 
 > React驱动的Markdown网站生成器
 
-## 项目介绍
+## 项目介绍`React`驱动的`Markdown`网站生成器
 
-## 如何使用
+## 如何React驱动的Markdown网站生成器 了解基本操作
 
 1. 初始化项目
 
@@ -51,6 +51,7 @@
 
 1. 自定义项目目录：根目录下`src`文件夹
 2. 目录介绍
+
 ```
 │  App.jsx  >>> App组件，ReactRouter使用
 │  main.jsx >>> 主入口文件
