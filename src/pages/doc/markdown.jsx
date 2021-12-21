@@ -26,7 +26,6 @@ const MarkDown = (props) => {
             if (typeof el === 'string') return el;
             return el.props.children.join('');
           }).join('');
-          console.log(hId)
           return <h2 id={hId} {...props}>{children}</h2>
         },
         a({ node, children, href, ...props }) {
