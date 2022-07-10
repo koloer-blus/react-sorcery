@@ -1,0 +1,40 @@
+{
+    "name": "react-sorcery",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.3",
+        "@types/react": "^18.0.0",
+        "@types/react-dom": "^18.0.0",
+        "@vitejs/plugin-react": "^1.3.0",
+        "react-router-dom": "6",
+        "typescript": "^4.6.3",
+        "vite": "^2.9.9"
+    },
+    "main": "./bin/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/baiziyu-fe/react-sorcery.git"
+    },
+    "keywords": [
+        "react",
+        "markdown",
+        "website"
+    ],
+    "author": "baiziyu-fe",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/baiziyu-fe/react-sorcery/issues"
+    },
+    "homepage": "https://github.com/baiziyu-fe/react-sorcery#readme",
+    "description": ""
+}
