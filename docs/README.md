@@ -106,5 +106,3 @@
 ```
 
 ---
-
-> 🎯React Press ©2021 Created by baiziyu-fe
